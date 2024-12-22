@@ -1,0 +1,106 @@
+# Environment Setup
+## Python version: 3.11
+## Project name: RND
+
+# Required packages
+requirements.txt
+---------------
+langchain>=0.1.0
+streamlit>=1.30.0
+python-dotenv>=1.0.0
+pandas>=2.1.0
+numpy>=1.24.0
+requests>=2.31.0
+plotly>=5.18.0
+python-binance>=1.0.19  # For crypto data
+yfinance>=0.2.35  # For forex data
+ta>=0.10.5  # Technical analysis
+scipy>=1.11.0
+
+# Project Structure
+trading_assistant/
+├── .env                    # Environment variables
+├── requirements.txt        # Dependencies
+├── app.py                 # Streamlit dashboard
+├── src/
+│   ├── __init__.py
+│   ├── llm_config.py      # LLM configuration
+│   ├── data_fetcher.py    # Market data retrieval
+│   ├── analysis.py        # Trading analysis logic
+│   ├── agents/
+│   │   ├── __init__.py
+│   │   ├── research_agent.py
+│   │   └── market_agent.py
+│   └── utils/
+│       ├── __init__.py
+│       └── helpers.py
+└── tests/
+    └── __init__.py
+
+    ------------------
+# 1. Create project directory and navigate to it
+mkdir trading_assistant
+cd trading_assistant
+
+# 2. Create Python virtual environment
+# Windows
+python -m venv RND
+# Activate the environment (Windows)
+.\RND\Scripts\activate
+# Linux/Mac
+python3 -m venv RND
+# Activate the environment (Linux/Mac)
+source RND/bin/activate
+
+# 3. Create project structure
+mkdir src
+mkdir src/agents
+mkdir src/utils
+mkdir tests
+touch src/__init__.py
+touch src/agents/__init__.py
+touch src/utils/__init__.py
+touch tests/__init__.py
+
+# 4. Create initial files
+touch requirements.txt
+touch .env
+touch app.py
+touch src/llm_config.py
+touch src/data_fetcher.py
+touch src/analysis.py
+touch src/agents/research_agent.py
+touch src/agents/market_agent.py
+touch src/utils/helpers.py
+
+# 5. Install required packages
+pip install langchain streamlit python-dotenv pandas numpy requests plotly python-binance yfinance ta scipy langchain_community 
+
+# 6. Save dependencies
+pip freeze > requirements.txt
+
+# 7. Configure .env file
+echo "OLLAMA_BASE_URL=http://193.178.1.81:11434" >> .env
+echo "MODEL_NAME=llama3" >> .env
+
+
+--------------------------
+
+
+# Navigate to your project directory
+cd path/to/trading_assistant
+
+# Create and activate the environment
+python -m venv RND
+# Windows
+.\RND\Scripts\activate
+# Linux/Mac
+source RND/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the Streamlit app
+streamlit run app.py
+
+-----
